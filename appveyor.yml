@@ -1,0 +1,18 @@
+version: 1.0.{build}
+configuration: Release
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+after_build:
+- ps: >-
+    nuget pack HelloService\HelloService.nuspec -version $env:APPVEYOR_BUILD_VERSION
+
+    Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+deploy:
+- provider: NuGet
+  api_key:
+    secure: QMIvgFpuwinDWXAoT7EBrrYFL0rtIyNT/8I3HQcTQ1mKyVjiOgVujDwrZfhJxqoy
+  skip_symbols: true
+  on:
+    branch: master

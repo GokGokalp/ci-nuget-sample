@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>HelloService</id>
+    <version>$version$</version>
+    <title>HelloService</title>
+    <authors>Gökhan Gökalp</authors>
+    <owners>Gökhan Gökalp</owners>
+    <projectUrl>https://github.com/GokGokalp/ci-nuget-sample</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Say hello!</description>
+    <copyright>Copyright 2017 Gökhan Gökalp</copyright>
+    <tags>Hello Service</tags>
+  </metadata>
+    <files>
+    <file src="bin\Release\HelloService.dll" exclude="bin\Release\*.dll.config" target="lib\net461\HelloService.dll" />
+  </files>
+</package>
